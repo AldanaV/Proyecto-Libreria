@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.libros-titulo h1{
+    padding: 1.5rem;
+    background-color: rgb(172, 101, 101);
+    text-shadow:2px 1px 3px white ;
+}
+
+.container-libros{
+    background-color: rgb(255, 255, 255); 
+}
+
+
+.container-imagenes{
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    grid-template-columns: 340px 340px 340px 340px;
+    padding-left: 1.2rem;
+    padding-bottom: 6rem;
+}
+.imagenes{
+    border-radius: 1%;
+    border: solid;
+    border-color: rgb(226, 99, 243);
+    justify-content: space-between;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    box-shadow: 15px 15px rgb(242, 141, 255);
+}
+.imagenes img{ 
+    height: 54vh; 
+    width: 35vh;  
+}

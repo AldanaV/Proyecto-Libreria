@@ -1,0 +1,66 @@
+.tituloLibro {
+    height: 100%;
+    width: 100%;
+    margin: 50px auto;
+    background-color: rgb(254, 254, 254);
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.libroImg{
+    display: flex;
+    flex-wrap: wrap
+}
+.libroImg img{
+    width: 350px;
+    padding: 5% 0% 5% 20%; 
+}
+.libroInfo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column
+}
+.descripcion {
+    padding: 0% 0% 0% 0%; 
+    padding-left: 5%;
+    padding-right: 15%;
+    width: auto;
+}
+.info {
+    padding: 0% 0% 0% 0%; 
+    padding-left: 5%;
+    width: auto;
+    margin: 0%;
+}
+.info span{
+    color: blueviolet;
+    font:bolder 
+}
+.libroInfo h2 {
+    padding-left: 5%;
+    color: blueviolet;
+    margin: 0%;
+}
+@media (max-width:  775px) {
+    .tituloLibro {
+        flex-wrap: wrap;
+    }
+    
+}
+
+.containerBtn{
+    margin-left: 5%;
+    margin-top: 3%;
+}
+
+.containerBtn button{
+    background-color: rgb(203, 128, 212);
+    height: 30px;
+    width: 100px;
+    border: 0;
+    cursor: pointer;
+    align-items: center;
+}
+

@@ -1,0 +1,92 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.seccion{
+    
+    background-color: rgb(177, 140, 248);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    unicode-bidi: isolate;
+    justify-content: center;
+}
+@media only screen and (max-width: 875px){
+    .seccion{
+        height: 252px;
+    }
+}
+@media only screen and (max-width: 575px){
+    .seccion{
+        height: 365px;
+    }
+}
+.cajaPrincipal{
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+    /*height: 10rem;*/
+}
+
+.cajaSecundaria{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemInfo{
+    color:black;
+    line-height: 1px;
+    padding-right: 0;
+    padding-left: 0;
+    display:inline;
+    text-align: center !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 18rem;
+}
+.imagenCaja{
+    padding: 1rem;
+    margin:0%;
+}
+.imagenCaja i{
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.tituloItem{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.tituloItem h5,.tituloItem h6{
+    line-height: 1;
+    font-weight: bolder;
+    /*padding:1rem;*/
+}
+
+
+.footer {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 0rem;
+    margin: 0rem;
+}
+
+.footer p {
+    margin: 0;
+}
+
+
+/*color: rgb(167, 75, 75);*/
+
+
