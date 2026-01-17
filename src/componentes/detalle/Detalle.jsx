@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Footer from '../footer/Footer';
-import CanvaEjemplo from '../comprar/Comprar';
 import './Detalle.css'
+import { useContext } from "react";
+import { CartContext } from '../carrito/Carrito';
 
 const Detalle = () => {
     const location = useLocation();
+    const { addToCart } = useContext(CartContext);
+
     const [nombre, setNombre] = useState('');
     const [descripcion, setDescripcion] = useState('');
     const [src, setSrc] = useState('');
@@ -29,6 +32,8 @@ const Detalle = () => {
         setEditorial(editorial);
     }, []);
 
+    const libro = {id: isbn, nombre, descripcion, src, precio, autor, paginas, categoria, isbn, editorial};
+
     return (<>
         <div className="cajaDescripcion">
             <div className="tituloLibro">
@@ -47,7 +52,7 @@ const Detalle = () => {
                     <p className='info'><span>ISBN: </span>{isbn}</p>
 
                     <div className='containerBtn'>
-                        <CanvaEjemplo />
+                        <button className='btnComprar' onClick={() => addToCart(libro)}>Comprar</button>
                     </div>
                     
                 </div>

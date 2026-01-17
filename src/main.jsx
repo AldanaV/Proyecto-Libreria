@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
-
+import { CartProvider } from './componentes/carrito/Carrito.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -11,3 +11,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 )
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <CartProvider>
+    <App />
+  </CartProvider>
+);

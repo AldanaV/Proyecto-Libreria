@@ -6,10 +6,18 @@ import { Link } from 'react-router-dom'
 import './Nabvar.css';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
+import { useState, useContext } from "react";
+import { CartContext } from "../carrito/Carrito";
+import Modal from 'react-bootstrap/Modal';
 
 
 
 const NabVarPrincipal = () => {
+
+    const [show, setShow] = useState(false);
+    const {cart} = useContext(CartContext);
+    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+
     return (
 
         <div>
@@ -28,16 +36,41 @@ const NabVarPrincipal = () => {
                             <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
                         </Nav>
 
-                        <Link to="/carrito">
-                        <Button variant="outline-dark" className="btn-carrito position-relative">
-                            <i className="bi bi-cart3 fs-5"></i>
-                            <Badge bg="danger" className="position-absolute top-0 start-100 translate-middle">4</Badge>
+                        
+                        <Button variant="outline-dark" className="btn-carrito position-relative" onClick={() => setShow(true)}>
+                            <i className="bi bi-cart3"></i>{totalItems > 0 && (
+                                <Badge bg="danger" className="position-absolute top-0 start-100 translate-middle">{totalItems}
+                                </Badge>
+                            )}
                         </Button>
-                    </Link>
 
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+
+            <Modal show={show} onHide={() => setShow(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Tu carrito</Modal.Title>
+                </Modal.Header>
+
+            <Modal.Body>
+                {cart.length === 0 ? (
+                <p>El carrito está vacío</p>) : (cart.map(item => (
+                <div key={item.id}>
+                    <strong>{item.nombre}</strong>
+                    <p>Cantidad: {item.quantity}</p>
+                    <p>Precio: {item.precio}</p>
+                </div>
+                ))
+            )}
+
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShow(false)}>Seguir comprando</Button>
+                </Modal.Footer>
+            </Modal.Body>
+            </Modal>
+
+            
         </div>
     )
 }
