@@ -32,7 +32,20 @@ const Detalle = () => {
         setEditorial(editorial);
     }, []);
 
-    const libro = {id: isbn, nombre, descripcion, src, precio, autor, paginas, categoria, isbn, editorial};
+    const libro = {id: isbn, 
+        nombre, 
+        descripcion, 
+        src, 
+        precio: Number
+        (String(precio || 0)
+      .replace('$', '')
+      .replace('.', '')
+      .replace(',', '.')), 
+        autor, 
+        paginas, 
+        categoria, 
+        isbn, 
+        editorial};
 
     return (<>
         <div className="cajaDescripcion">

@@ -12,10 +12,11 @@ import Modal from 'react-bootstrap/Modal';
 
 
 
-const NabVarPrincipal = () => {
 
+const NabVarPrincipal = () => {
+    
     const [show, setShow] = useState(false);
-    const {cart} = useContext(CartContext);
+    const {cart, removeFromCart, totalPrice} = useContext(CartContext);
     const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
     return (
@@ -56,18 +57,31 @@ const NabVarPrincipal = () => {
             <Modal.Body>
                 {cart.length === 0 ? (
                 <p>El carrito está vacío</p>) : (cart.map(item => (
-                <div key={item.id}>
-                    <strong>{item.nombre}</strong>
-                    <p>Cantidad: {item.quantity}</p>
-                    <p>Precio: {item.precio}</p>
+                <div key={item.id} className="d-flex justify-content-between align-items-center mb-2">
+                    <div>
+                        <strong>{item.nombre}</strong>
+                        <div className='text-muted'>
+                            {item.quantity} x ${item.precio}
+                        </div>
+                    </div>
+
+                    <Button variant="outline-danger" size="sm" onClick={() => removeFromCart(item.id)}>X</Button>
                 </div>
                 ))
             )}
 
-                <Modal.Footer>
+            <hr />
+            
+            <div>
+                <span>Total</span>
+                <span>${totalPrice}</span>
+            </div>
+            </Modal.Body>
+
+            <Modal.Footer>
                     <Button variant="secondary" onClick={() => setShow(false)}>Seguir comprando</Button>
                 </Modal.Footer>
-            </Modal.Body>
+
             </Modal>
 
             
