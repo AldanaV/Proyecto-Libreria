@@ -38,3 +38,23 @@
   right: -6px;
   font-size: 10px;
 }
+
+
+.btn-cantidad{
+  width: 35px !important; 
+  height: 25px !important; 
+  border-radius: 20% !important; 
+  padding: 0 !important; 
+  font-size: 18px !important;
+}
+
+.btn-cantidad:hover{
+  background-color: #94469b !important;
+}
+
+.btn-seguir{
+  background-color: #94469b !important;
+  width: 29rem !important; 
+  height: 2rem !important;
+  align-items: center;
+}

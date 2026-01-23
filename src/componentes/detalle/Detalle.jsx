@@ -4,8 +4,13 @@ import Footer from '../footer/Footer';
 import './Detalle.css'
 import { useContext } from "react";
 import { CartContext } from '../carrito/Carrito';
+import Toast from 'react-bootstrap/Toast';
+import ToastContainer from 'react-bootstrap/ToastContainer';
+import { ToastBody } from 'react-bootstrap';
+
 
 const Detalle = () => {
+    const [showToast, setShowToast] = useState(false);
     const location = useLocation();
     const { addToCart } = useContext(CartContext);
 
@@ -65,13 +70,22 @@ const Detalle = () => {
                     <p className='info'><span>ISBN: </span>{isbn}</p>
 
                     <div className='containerBtn'>
-                        <button className='btnComprar' onClick={() => addToCart(libro)}>Comprar</button>
+                        <button className='btnComprar' onClick={() => { addToCart(libro); setShowToast(true);}}>Comprar</button>
                     </div>
                     
                 </div>
             </div>
             <Footer />
         </div>
+
+        <ToastContainer position='bottom-end' className='p-3'>
+            <Toast className='toastColor' show={showToast} onClose={() => setShowToast(false)} delay={2400} autohide>
+                <ToastBody className='text-white'>
+                    📘 {nombre} Agregado al carrito.
+                </ToastBody>
+            </Toast>
+        </ToastContainer>
+
     </>);
 };
 

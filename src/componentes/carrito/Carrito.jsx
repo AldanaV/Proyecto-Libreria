@@ -8,12 +8,12 @@ export const CartProvider = ({children}) => {
         return carritoGuardado ? JSON.parse(carritoGuardado) : [];
     });
 
-    // 🔹 Guardar carrito cada vez que cambia
+    //Guardar carrito cada vez que cambia
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
-    // 🔹 Agregar al carrito
+    //Agregar al carrito
     const addToCart = (libro) => {
         setCart(prevCart => {
             const existe = prevCart.find(item => item.id === libro.id);
@@ -30,12 +30,12 @@ export const CartProvider = ({children}) => {
         });
     };
 
-    // 🔹 Eliminar producto
+    //Eliminar producto
     const removeFromCart = (id) => {
         setCart(prevCart => prevCart.filter(item => item.id !== id));
     };
 
-    // 🔹 Sumar cantidad
+    //Sumar cantidad
     const increaseQuantity = (id) => {
         setCart(prevCart =>
             prevCart.map(item =>
@@ -46,7 +46,7 @@ export const CartProvider = ({children}) => {
         );
     };
 
-    // 🔹 Restar cantidad (si llega a 0 se elimina)
+    // Restar cantidad (si llega a 0 se elimina)
     const decreaseQuantity = (id) => {
         setCart(prevCart =>
             prevCart
@@ -59,7 +59,7 @@ export const CartProvider = ({children}) => {
         );
     };
 
-    // 🔹 Total del carrito
+    // Total del carrito
     const totalPrice = cart.reduce(
         (acc, item) => acc + Number(item.precio) * item.quantity,
         0

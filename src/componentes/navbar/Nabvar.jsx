@@ -16,7 +16,7 @@ import Modal from 'react-bootstrap/Modal';
 const NabVarPrincipal = () => {
     
     const [show, setShow] = useState(false);
-    const {cart, removeFromCart, totalPrice} = useContext(CartContext);
+    const {cart, removeFromCart, increaseQuantity, decreaseQuantity, totalPrice} = useContext(CartContext);
     const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
     return (
@@ -65,7 +65,15 @@ const NabVarPrincipal = () => {
                         </div>
                     </div>
 
-                    <Button variant="outline-danger" size="sm" onClick={() => removeFromCart(item.id)}>X</Button>
+                    <div className='d-flex align-items-center gap-2'>
+                        <Button className='btn-cantidad' variant='outline-secondary' size='sm' onClick={() => decreaseQuantity(item.id)}>-</Button>
+                        <span>{item.quantity}</span>
+                        
+                        <Button className='btn-cantidad' variant='outline-secondary' size='sm' onClick={() => increaseQuantity(item.id)}>+</Button>
+                    </div>
+
+
+                    <Button className='btn-cantidad' variant="outline-danger" size="sm" onClick={() => removeFromCart(item.id)}>X</Button>
                 </div>
                 ))
             )}
@@ -79,7 +87,7 @@ const NabVarPrincipal = () => {
             </Modal.Body>
 
             <Modal.Footer>
-                    <Button variant="secondary" onClick={() => setShow(false)}>Seguir comprando</Button>
+                    <Button className='btn-seguir' variant="secondary" onClick={() => setShow(false)}>Seguir comprando</Button>
                 </Modal.Footer>
 
             </Modal>
