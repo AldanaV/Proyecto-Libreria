@@ -56,7 +56,7 @@ const NabVarPrincipal = () => {
 
             <Modal.Body>
                 {cart.length === 0 ? (
-                <p>El carrito está vacío</p>) : (cart.map(item => (
+                <p>El carrito esta vacío.</p>) : (cart.map(item => (
                 <div key={item.id} className="d-flex justify-content-between align-items-center mb-2">
                     <div>
                         <strong>{item.nombre}</strong>
@@ -73,7 +73,7 @@ const NabVarPrincipal = () => {
             <hr />
             
             <div>
-                <span>Total</span>
+                <span>Total: </span>
                 <span>${totalPrice}</span>
             </div>
             </Modal.Body>
