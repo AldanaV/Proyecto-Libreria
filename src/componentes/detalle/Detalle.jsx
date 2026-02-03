@@ -79,7 +79,7 @@ const Detalle = () => {
         </div>
 
         <ToastContainer position='bottom-end' className='p-3'>
-            <Toast className='toastColor' show={showToast} onClose={() => setShowToast(false)} delay={2400} autohide>
+            <Toast className='toastColor' show={showToast} onClose={() => setShowToast(false)} delay={2000} autohide>
                 <ToastBody className='text-white'>
                     📘 {nombre} Agregado al carrito.
                 </ToastBody>

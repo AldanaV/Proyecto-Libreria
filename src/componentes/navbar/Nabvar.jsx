@@ -9,6 +9,8 @@ import Badge from 'react-bootstrap/Badge';
 import { useState, useContext } from "react";
 import { CartContext } from "../carrito/Carrito";
 import Modal from 'react-bootstrap/Modal';
+import Toast from 'react-bootstrap/Toast';
+import ToastContainer from 'react-bootstrap/ToastContainer';
 
 
 
@@ -18,6 +20,14 @@ const NabVarPrincipal = () => {
     const [show, setShow] = useState(false);
     const {cart, removeFromCart, increaseQuantity, decreaseQuantity, totalPrice} = useContext(CartContext);
     const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+    const [showToast, setShowToast] = useState(false);
+    const [toastMsg, setToastMsg] = useState('');
+
+    const handleRemove = (item) => {
+    removeFromCart(item.id);
+    setToastMsg(`🗑️ ${item.nombre} ha sido eliminado del carrito.`);
+    setShowToast(true);
+    };
 
     return (
 
@@ -73,7 +83,7 @@ const NabVarPrincipal = () => {
                     </div>
 
 
-                    <Button className='btn-cantidad' variant="outline-danger" size="sm" onClick={() => removeFromCart(item.id)}>X</Button>
+                    <Button className='btn-cantidad' variant="outline-danger" size="sm" onClick={() => handleRemove(item)}>X</Button>
                 </div>
                 ))
             )}
@@ -91,7 +101,14 @@ const NabVarPrincipal = () => {
                 </Modal.Footer>
 
             </Modal>
-
+            
+            <ToastContainer position='bottom-end' className='p-3'>
+                <Toast show={showToast} onClose={() => setShowToast(false)} delay={2100} autohide bg='danger'>
+                    <Toast.Body className='text-white'>
+                        {toastMsg}
+                    </Toast.Body>
+                </Toast>
+            </ToastContainer>
             
         </div>
     )
