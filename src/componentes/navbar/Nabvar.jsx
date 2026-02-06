@@ -98,6 +98,7 @@ const NabVarPrincipal = () => {
 
             <Modal.Footer>
                     <Button className='btn-seguir' variant="secondary" onClick={() => setShow(false)}>Seguir comprando</Button>
+                    <Link to="/checkout"><Button className='btn-seguir' onClick={() => setShow(false)}>Finalizar compra</Button></Link>
                 </Modal.Footer>
 
             </Modal>

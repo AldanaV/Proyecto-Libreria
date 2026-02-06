@@ -70,7 +70,7 @@ const Detalle = () => {
                     <p className='info'><span>ISBN: </span>{isbn}</p>
 
                     <div className='containerBtn'>
-                        <button className='btnComprar' onClick={() => { addToCart(libro); setShowToast(true);}}>Comprar</button>
+                        <button className='btnComprar' onClick={() => { addToCart(libro); setShowToast(true);}}>Agregar al carrito</button>
                     </div>
                     
                 </div>

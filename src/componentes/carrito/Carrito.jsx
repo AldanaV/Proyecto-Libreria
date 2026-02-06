@@ -3,6 +3,8 @@ import {createContext, useState, useEffect } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
+
+    
     const [cart, setCart] = useState(() => {
         const carritoGuardado = localStorage.getItem("cart");
         return carritoGuardado ? JSON.parse(carritoGuardado) : [];
@@ -59,6 +61,11 @@ export const CartProvider = ({children}) => {
         );
     };
 
+    //Despejar carrito
+    const clearCart = () => {
+        setCart([]);
+    };
+
     // Total del carrito
     const totalPrice = cart.reduce(
         (acc, item) => acc + Number(item.precio) * item.quantity,
@@ -73,6 +80,7 @@ export const CartProvider = ({children}) => {
                 removeFromCart,
                 increaseQuantity,
                 decreaseQuantity,
+                clearCart,
                 totalPrice
             }}
         >

@@ -58,8 +58,9 @@
 .containerBtn button{
     background-color: rgb(203, 128, 212);
     height: 30px;
-    width: 100px;
-    border: 0;
+    width: 124px;
+    border: 0px;
+    border-radius: 7px;
     cursor: pointer;
     align-items: center;
 }

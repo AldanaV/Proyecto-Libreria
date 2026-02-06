@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Contacto from './componentes/contacto/Contacto'
 import Detalle from './componentes/detalle/Detalle'
 import ScrollToTop from "./componentes/ScrollToTop";
+import Checkout from './componentes/checkout/Checkout'
+import Confirmacion from './componentes/confirmacion/Confirmacion'
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <Route path='/ingles' Component={LibrosIngles} />
           <Route path='/contacto' Component={Contacto} />
           <Route path='/detalle' Component={Detalle} />
+          <Route path='/checkout' Component={Checkout}/>
+          <Route path='/confirmacion' Component={Confirmacion}/>
         </Routes>
       </Router>
         
