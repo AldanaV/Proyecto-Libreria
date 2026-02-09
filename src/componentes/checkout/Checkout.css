@@ -1,0 +1,23 @@
+.caja{
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.caja form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input{
+    width: 100%;
+}
+
+.btn-confirmar{
+    background-color: #94469b;
+    color: white;
+    border-radius: 5px;
+    align-items: center;
+    width: 34rem;
+}

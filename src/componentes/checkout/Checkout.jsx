@@ -1,6 +1,7 @@
 import { useContext ,useState } from "react";
 import {CartContext} from "../carrito/Carrito";
 import { useNavigate } from "react-router-dom";
+import './Checkout.css'
 
 const Checkout = () => {
     const {cart, totalPrice, clearCart} = useContext(CartContext);
@@ -32,7 +33,7 @@ const Checkout = () => {
     }
     
     return(
-        <div className="container mt-4">
+        <div className="caja">
             <h2>Checkout</h2>
             <form onSubmit={handleSubmit}>
                 <input
@@ -40,7 +41,7 @@ const Checkout = () => {
                 name="nombre"
                 placeholder="Nombre"
                 required
-                className="form-control mb-2"
+                className="input form-control mb-2"
                 onChange={handleChange}
                 />
 
@@ -49,7 +50,7 @@ const Checkout = () => {
                 name="email"
                 placeholder="Email"
                 required
-                className="form-control mb-2"
+                className="input form-control mb-2"
                 onChange={handleChange}
                 />
 
@@ -58,11 +59,11 @@ const Checkout = () => {
                 name="direccion"
                 placeholder="Direccion"
                 required
-                className="form-control mb-2"
+                className="input form-control mb-2"
                 onChange={handleChange}
                 />
 
-                <button className="btn btn-dark">Confirmar compra</button>
+                <button className="btn-confirmar">Confirmar compra</button>
             </form>
 
             <hr/>
