@@ -6,7 +6,7 @@
 }
 
 
-.btn-carrito {
+.btn-carrito, .btn-perfil {
   width: 32px !important;
   height: 32px !important;
   padding: 0 !important;
@@ -17,10 +17,11 @@
 
   border-radius: 50% !important;
   transition: all 0.2s ease;
+  
 }
 
 /* HOVER */
-.btn-carrito:hover {
+.btn-carrito:hover, .btn-perfil:hover {
   background-color: #711a79 !important; /* negro bootstrap */
   color: #fff !important;
   border-color: #212529 !important;
@@ -38,6 +39,8 @@
   right: -6px;
   font-size: 10px;
 }
+
+/*Boton perfil*/
 
 
 .btn-cantidad{
@@ -58,4 +61,5 @@
   height: 2rem !important;
   align-items: center;
 }
+
 
