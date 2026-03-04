@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom'
 import './Nabvar.css';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../carrito/Carrito";
 import Modal from 'react-bootstrap/Modal';
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import { ModalBody } from 'react-bootstrap';
+import Dropdown from 'react-bootstrap/Dropdown';
+
 
 
 
@@ -29,6 +31,33 @@ const NabVarPrincipal = () => {
     setToastMsg(`🗑️ ${item.nombre} ha sido eliminado del carrito.`);
     setShowToast(true);
     };
+
+    const [user, setUser] = useState(null);
+    useEffect(() => {
+        const loadUser = () =>{
+            const storedUser = localStorage.getItem("user");
+            if(storedUser){
+                setUser(JSON.parse(storedUser));
+            } else{
+                setUser(null);
+            }
+        };
+
+        loadUser();
+
+        window.addEventListener("userChanged", loadUser);
+
+        return() => {
+            window.removeEventListener("userCharged", loadUser);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        setUser(null);
+    };
+
 
     return (
 
@@ -50,9 +79,26 @@ const NabVarPrincipal = () => {
 
                         
 
-                        <Button as={Link} to={"/account/Login"} variant='outline-dark' className='btn-perfil'>
-                            <i className="bi bi-person-circle"></i>
-                        </Button>
+                        {user ?(
+                            <Dropdown
+                            onMouseEnter={(e) => e.currentTarget.click()}
+                            onMouseLeave={(e) => e.currentTarget.click()}
+                            >
+                                <Dropdown.Toggle variant="link" className='btn-user' size='sm' id='dropdown-user'>
+                                    Hola, {user.nombre}
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    <Dropdown.Item onClick={handleLogout}>
+                                        Cerrar sesión
+                                    </Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        ): (
+                            <Button as={Link} to="/account/Login" variant='outline-dark' className='btn-perfil'>
+                                <i className="bi bi-person-circle"></i>
+                            </Button>
+                        )}
 
                         <Button variant="outline-dark" className="btn-carrito position-relative" onClick={() => setShow(true)}>
                             <i className="bi bi-cart3"></i>{totalItems > 0 && (

@@ -1,3 +1,11 @@
+.me-auto{
+
+  font-family: "Comic Relief", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
 .navbar-toggler {
     height: 39.6px;
 }
@@ -62,4 +70,27 @@
   align-items: center;
 }
 
+.dropdown-toggle::after {
+    display: none !important;
+}
 
+
+.btn-user{
+  background-color: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.btn-user:hover{
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.btn-user:focus, .btn-user:active{
+  color: black;
+  background-color: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}

@@ -10,6 +10,8 @@ import Detalle from './componentes/detalle/Detalle'
 import ScrollToTop from "./componentes/ScrollToTop";
 import Checkout from './componentes/checkout/Checkout'
 import Confirmacion from './componentes/confirmacion/Confirmacion'
+import Login from './componentes/account/Login'
+import Register from './componentes/account/Register'
 
 
 function App() {
@@ -28,6 +30,9 @@ function App() {
           <Route path='/detalle' Component={Detalle} />
           <Route path='/checkout' Component={Checkout}/>
           <Route path='/confirmacion' Component={Confirmacion}/>
+          <Route path="/account/login" Component={Login} />
+          <Route path="/account/register" Component={Register}/>
+
         </Routes>
       </Router>
         
