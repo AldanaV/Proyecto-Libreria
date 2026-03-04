@@ -58,3 +58,18 @@ export const loginUser = async (req, res) =>{
         res.status(500).json({msg: "Error del servidor."});
     }
 };
+
+export const forgotPassword = async(req, res) => {
+    try{
+        const {email} = req.body;
+        const user = await User.findOne({email});
+        if(!user){
+            return res.status(400).json({msg: "Usuario no encontrado"});
+        }
+
+        res.json({msg: "Link de recuperacion enviado."})
+    }catch(error){
+        console.log(error);
+        res.status(500).json({msg: "Error del servidor."});
+    }
+}
