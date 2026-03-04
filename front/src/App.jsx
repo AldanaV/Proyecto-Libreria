@@ -12,6 +12,7 @@ import Checkout from './componentes/checkout/Checkout'
 import Confirmacion from './componentes/confirmacion/Confirmacion'
 import Login from './componentes/account/Login'
 import Register from './componentes/account/Register'
+import ForgotPassword from './componentes/account/ForgotPassword'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path='/confirmacion' Component={Confirmacion}/>
           <Route path="/account/login" Component={Login} />
           <Route path="/account/register" Component={Register}/>
+          <Route path="/account/forgot-password" Component={ForgotPassword} />
 
         </Routes>
       </Router>
