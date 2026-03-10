@@ -22,7 +22,7 @@ const NabVarPrincipal = () => {
     
     const [show, setShow] = useState(false); //Modal del carrito
     const {cart, removeFromCart, increaseQuantity, decreaseQuantity, totalPrice} = useContext(CartContext);
-    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+    const totalItems = cart?.reduce((acc, item) => acc + item.quantity, 0) || 0;
     const [showToast, setShowToast] = useState(false);
     const [toastMsg, setToastMsg] = useState('');
 
@@ -48,7 +48,7 @@ const NabVarPrincipal = () => {
         window.addEventListener("userChanged", loadUser);
 
         return() => {
-            window.removeEventListener("userCharged", loadUser);
+            window.removeEventListener("userChanged", loadUser);
         }
     }, []);
 
@@ -117,7 +117,7 @@ const NabVarPrincipal = () => {
                 </Modal.Header>
 
             <Modal.Body>
-                {cart.length === 0 ? (
+                {!cart || cart.length === 0 ? (
                 <p>El carrito esta vacío.</p>) : (cart.map(item => (
                 <div key={item.id} className="d-flex justify-content-between align-items-center mb-2">
                     <div>
@@ -150,7 +150,12 @@ const NabVarPrincipal = () => {
 
             <Modal.Footer>
                     <Button className='btn-seguir' variant="secondary" onClick={() => setShow(false)}>Seguir comprando</Button>
-                    <Button as={Link} to="/checkout" className='btn-seguir' onClick={() => setShow(false)}>Finalizar compra</Button>
+                    <Button className='btn-seguir' onClick={() => {const token = localStorage.getItem("token");
+                        if(!token){
+                            alert("Debes iniciar sesión para finalizar la compra.");
+                        }
+                        setShow(false);
+                    }}as={Link} to="/checkout">Finalizar compra</Button>
                 </Modal.Footer>
 
             </Modal>

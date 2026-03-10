@@ -28,7 +28,7 @@ const Checkout = () => {
         navigate("/confirmacion", {state: {orderId, formData}});
     };
 
-    if(cart.length === 0){
+    if(!cart || cart.length === 0){
         return <h2>Tu carrito esta vacio</h2>;
     }
     

@@ -13,6 +13,7 @@ import Confirmacion from './componentes/confirmacion/Confirmacion'
 import Login from './componentes/account/Login'
 import Register from './componentes/account/Register'
 import ForgotPassword from './componentes/account/ForgotPassword'
+import ProtectedRoute from './componentes/account/ProtectedRoute'
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
           <Route path='/ingles' Component={LibrosIngles} />
           <Route path='/contacto' Component={Contacto} />
           <Route path='/detalle' Component={Detalle} />
-          <Route path='/checkout' Component={Checkout}/>
+          <Route path='/checkout' element={<ProtectedRoute element={<Checkout />} />}/>
           <Route path='/confirmacion' Component={Confirmacion}/>
           <Route path="/account/login" Component={Login} />
           <Route path="/account/register" Component={Register}/>

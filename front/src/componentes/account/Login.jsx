@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
 
+    const location = useLocation();
     const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || "/";
 
     const [formData, setFormData] = useState({
         email: "",
@@ -46,6 +49,7 @@ const Login = () => {
             localStorage.setItem("user", JSON.stringify(data.user));
             navigate("/");
             window.dispatchEvent(new Event("userChanged"));
+            navigate(from, { replace: true }); //vuelve a la pagina a la que se dirigia
 
         } catch (err) {
             setError("Error del servidor");
