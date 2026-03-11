@@ -10,7 +10,7 @@ function Footer() {
                     <div className="cajaSecundaria">
                         <div className="itemInfo">
                             <p className="imagenCaja">
-                                <i class="bi bi-box2-heart-fill"></i>
+                                <i className="bi bi-box2-heart-fill"></i>
                             </p>
                             <div className="tituloItem">
                                 <h5>ENVIO GRATIS</h5>
@@ -19,7 +19,7 @@ function Footer() {
                         </div>
                         <div className="itemInfo">
                             <p className="imagenCaja">
-                                <i class="bi bi-cash-coin"></i>
+                                <i className="bi bi-cash-coin"></i>
                             </p>
                             <div className="tituloItem">
                                 <h5>DESCUENTO DE 10%</h5>
@@ -28,7 +28,7 @@ function Footer() {
                         </div>
                         <div className="itemInfo">
                             <p className="imagenCaja">
-                                <i class="bi bi-geo-alt-fill"></i>
+                                <i className="bi bi-geo-alt-fill"></i>
                             </p>
                             <div className="tituloItem">
                                 <h5>PUNTOS DE ENTREGA</h5>

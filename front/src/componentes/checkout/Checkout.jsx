@@ -20,12 +20,41 @@ const Checkout = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const orderId = Math.floor(Math.random() * 100000);
-        clearCart();
-        navigate("/confirmacion", {state: {orderId, formData}});
+        try{
+            const user = JSON.parse(localStorage.getItem("user"));
+            const order = {
+                user: user._id,
+                productos: cart,
+                total: totalPrice,
+                direccion: formData.direccion
+            };
+
+            const res = await fetch("http://localhost:5000/api/orders", {
+                method: "POST",
+                headers:{
+                    "Content-Type":"application/json",
+                },
+                body: JSON.stringify(order)
+            });
+
+            
+
+    const data = await res.json();
+
+            clearCart();
+
+            navigate("/confirmacion", 
+                {state: 
+                    { orderNumber: data.orderNumber, 
+                        user: user 
+                    } 
+                });
+        } catch (error){
+            console.log("Error al crear la orden");
+        }
     };
 
     if(!cart || cart.length === 0){
