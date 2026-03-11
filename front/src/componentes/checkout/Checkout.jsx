@@ -27,6 +27,8 @@ const Checkout = () => {
             const user = JSON.parse(localStorage.getItem("user"));
             const order = {
                 user: user._id,
+                nombre: formData.nombre,
+                email: formData.email,
                 productos: cart,
                 total: totalPrice,
                 direccion: formData.direccion
