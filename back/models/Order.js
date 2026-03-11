@@ -9,10 +9,14 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
+
+    cliente:{
+        nombre: String,
+        email: String
+    },
+
     productos:Array,
-
     total:Number,
-
     direccion:String,
 
     fecha:{

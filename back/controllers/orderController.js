@@ -5,7 +5,14 @@ export const createOrder = async (req, res) => {
     try{
         const order = new Order({
             orderNumber: Math.floor(100000 + Math.random() * 900000),
+
             user: req.body.user,
+
+            cliente:{
+                nombre: req.body.nombre,
+                email: req.body.email
+            },
+
             productos: req.body.productos,
             total: req.body.total,
             direccion: req.body.direccion
