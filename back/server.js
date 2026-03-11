@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ mongoose.connect(process.env.MONGODB_URI)
     .catch(err => console.log(err));
 
 app.use("/api/auth", authRoutes);
+app.use("/api/orders", orderRoutes);
 
 app.listen(5000, () => {
     console.log("Servidor en puerto 5000")
