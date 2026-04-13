@@ -89,6 +89,11 @@ const NabVarPrincipal = () => {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
+
+                                    <Dropdown.Item as={Link} to="/mispedidos">
+                                        Mis pedidos
+                                    </Dropdown.Item>
+
                                     <Dropdown.Item onClick={handleLogout}>
                                         Cerrar sesión
                                     </Dropdown.Item>
