@@ -40,3 +40,16 @@ export const getOrderByUser = async (req, res) =>{
         res.status(500).json({msg:"Error al obtener pedidos."});
     }
 };
+
+export const getAllOrders = async (req, res) => {
+    try{
+        const orders = await Order.find()
+        .populate("user", "nombre email")
+        .sort({fecha: -1});
+
+        res.json(orders);
+    }catch(error){
+        console.log(error);
+        res.status(500).json({msg:"Error al obtener pedidos"});
+    }
+};
