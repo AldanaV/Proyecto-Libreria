@@ -90,6 +90,12 @@ const NabVarPrincipal = () => {
 
                                 <Dropdown.Menu>
 
+                                    {user?.role === "admin" &&(
+                                        <Dropdown.Item as={Link} to="/admin/pedidos">
+                                            Panel de Admin
+                                        </Dropdown.Item>
+                                    )}
+
                                     <Dropdown.Item as={Link} to="/mispedidos">
                                         Mis pedidos
                                     </Dropdown.Item>

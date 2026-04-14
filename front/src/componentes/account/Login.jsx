@@ -47,7 +47,6 @@ const Login = () => {
             localStorage.setItem("token", data.token);
             //Hacemos que nos mande al home si el login es exitoso
             localStorage.setItem("user", JSON.stringify(data.user));
-            navigate("/");
             window.dispatchEvent(new Event("userChanged"));
             navigate(from, { replace: true }); //vuelve a la pagina a la que se dirigia
 

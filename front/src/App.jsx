@@ -16,6 +16,8 @@ import ForgotPassword from './componentes/account/ForgotPassword'
 import ProtectedRoute from './componentes/account/ProtectedRoute'
 import MisPedidos from "./componentes/pedido/MisPedidos";
 import PedidoDetalle from './componentes/pedido/PedidoDetalle'
+import AdminPedidos from './componentes/admin/adminPedidos'
+import ProtectedAdminRoute from "./componentes/admin/protectedAdminRoute"
 
 
 
@@ -39,7 +41,8 @@ function App() {
           <Route path="/account/register" Component={Register}/>
           <Route path="/account/forgot-password" Component={ForgotPassword} />
           <Route path="/mispedidos" Component={MisPedidos}/>
-          <Route path='/pedido' Component={PedidoDetalle}/> 
+          <Route path='/pedido' Component={PedidoDetalle}/>
+          <Route path="/admin/pedidos" element={<ProtectedAdminRoute><AdminPedidos /></ProtectedAdminRoute>}/>
 
         </Routes>
       </Router>
