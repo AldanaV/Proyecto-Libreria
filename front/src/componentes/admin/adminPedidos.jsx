@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 
-const AdminPedidos = () => {
-    
+const AdminPedidos = () =>{
     const [orders, setOrders] = useState([]);
 
-    useEffect(() => {
+    const getColor = (estado) =>{
+        if(estado === "Pendiente") return "bg-warning";
+        if(estado === "Enviado") return "bg-primary";
+        if(estado === "Entregado") return "bg-success";
+        return "bg-secondary";
+    };
+
+    const fetchOrders = () => {
         const token = localStorage.getItem("token");
         fetch("http://localhost:5000/api/orders/admin/orders",{
             headers: {
@@ -12,50 +19,60 @@ const AdminPedidos = () => {
             }
         })
         .then(res => res.json())
-        .then (data => {
+        .then(data => {
             if(Array.isArray(data)){
                 setOrders(data);
             }else{
-                console.log("Error back: ", data);
+                console.log("Error back:", data);
                 setOrders([]);
             }
         })
         .catch(err => console.log(err));
+    };
+
+    useEffect(() =>{
+        fetchOrders();
     }, []);
 
     return(
         <div className="container mt-4">
             <h2>Panel de pedidos</h2>
             {orders.length === 0 && <p>No hay pedidos.</p>}
-
             {orders.map(order => (
                 <div key={order._id} className="card p-3 mb-3">
-                    <h5>Orden #{order.orderNumber}</h5>
-                    <p>
-                        Cliente: {order.cliente?.nombre || order.user?.nombre}
+                    <h5>Order #{order.orderNumber}</h5>
+
+                    <p>Cliente: {order.cliente?.nombre || order.user?.nombre}</p>
+
+                    <p>Fecha de compra:{" "}
+                        {order.fecha
+                        ? new Date(order.fecha).toLocaleString("es-AR", {
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit"
+                        })
+                        : "Sin fecha"}
                     </p>
 
-                    <p>
-                        Email: {order.cliente?.email || order.user?.email}
+                    <p>Estado: 
+                        <span className={`badge ms-2 ${getColor(order.estado)}`}>
+                            {order.estado}
+                        </span>
                     </p>
-
                     <p>Total: ${order.total}</p>
 
-                    <p>Dirección: {order.direccion}</p>
-
-                    <div className="mt-2">
-                        <strong>Productos:</strong>
-
-                        {order.productos.map((prod, index) => (
-                            <div key={index} className="ms-2">
-                                {prod.nombre} — {prod.quantity} x {prod.precio}
-                            </div>
-                        ))}
-                    </div>
+                    <Link 
+                        to="/admin/pedido"
+                        state={{orderId: order._id}}
+                        className="btn btn-outline-dark mt-3">
+                        Ver detalle
+                    </Link>
                 </div>
             ))}
         </div>
-    )
-}
+    );
+};
 
 export default AdminPedidos;

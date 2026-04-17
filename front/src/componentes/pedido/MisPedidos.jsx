@@ -6,8 +6,6 @@ const MisPedidos = () =>{
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"));
-        console.log("USER EN MISPEDIDOS: ", user);
-
         if(!user || !user.id){
             console.log("No hay usuario logueado.")
             return;
@@ -35,11 +33,15 @@ const MisPedidos = () =>{
                 <Link 
                     key={order._id}
                     to="/pedido"
-                    state={{order}}
+                    state={{orderId: order._id}}
                     className="card p-3 mb-3 text-decoration-none text-dark"
                 >
                     <h5>Orden #{order.orderNumber}</h5>
                     <p>Total: ${order.total}</p>
+                    <p>
+                        Estado:
+                        <span className="badge bg-info ms-2">{order.estado}</span>
+                    </p>
                 </Link>
                 
             ))}
