@@ -19,6 +19,11 @@ const orderSchema = new mongoose.Schema({
     total:Number,
     direccion:String,
 
+    estado:{
+        type: String,
+        default: "Pendiente"
+    },
+
     fecha:{
         type:Date,
         default:Date.now
