@@ -14,6 +14,7 @@ const AdminCrearLibro = () => {
         categoria: "",
         idioma: "",
         precio: "",
+        imagen: "",
         stock: ""
     });
 
@@ -137,6 +138,15 @@ const AdminCrearLibro = () => {
                     required
                 />
 
+                <input
+                    type="text"
+                    name="imagen"
+                    placeholder="URL de imagen"
+                    className="form-control mb-2"
+                    value={form.imagen}
+                    onChange={handleChange}
+                />
+                
                 <input
                     type="number"
                     name="stock"
