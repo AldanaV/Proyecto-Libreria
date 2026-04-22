@@ -19,6 +19,8 @@ import PedidoDetalle from './componentes/pedido/PedidoDetalle'
 import AdminPedidos from './componentes/admin/adminPedidos'
 import AdminPedidoDetalle from './componentes/admin/adminPedidoDetalle'
 import ProtectedAdminRoute from "./componentes/admin/protectedAdminRoute"
+import AdminStockLibros from './componentes/admin/adminStockLibros'
+import AdminCrearLibro from "./componentes/admin/adminCrearLibro"
 
 
 
@@ -45,7 +47,8 @@ function App() {
           <Route path='/pedido' Component={PedidoDetalle}/>
           <Route path="/admin/pedidos" element={<ProtectedAdminRoute><AdminPedidos /></ProtectedAdminRoute>}/>
           <Route path="/admin/pedido" element={<ProtectedAdminRoute><AdminPedidoDetalle /></ProtectedAdminRoute>}/>
-
+          <Route path="/admin/stock" element={<AdminStockLibros />} />
+          <Route path="/admin/libros/nuevo" element={<AdminCrearLibro />} />
         </Routes>
       </Router>
         

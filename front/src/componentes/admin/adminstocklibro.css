@@ -1,0 +1,18 @@
+.header-stock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-stock h2 {
+  margin: 0;
+}
+
+.btn-admin-small {
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  background-color: rgb(43, 168, 49);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}

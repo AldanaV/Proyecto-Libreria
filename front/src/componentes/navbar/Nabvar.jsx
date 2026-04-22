@@ -95,11 +95,17 @@ const NabVarPrincipal = () => {
                                             Panel de Admin
                                         </Dropdown.Item>
                                     )}
-
+                                    {user?.role === "user" &&(
                                     <Dropdown.Item as={Link} to="/mispedidos">
                                         Mis pedidos
                                     </Dropdown.Item>
+                                    )}
 
+                                    {user?.role === "admin" &&(
+                                        <Dropdown.Item as={Link} to="/admin/stock">
+                                            Stock de libros
+                                        </Dropdown.Item>
+                                    )}
                                     <Dropdown.Item onClick={handleLogout}>
                                         Cerrar sesión
                                     </Dropdown.Item>
