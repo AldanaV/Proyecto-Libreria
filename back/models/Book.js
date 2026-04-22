@@ -34,7 +34,13 @@ const bookSchema = new mongoose.Schema({
         type: Number,
         required: true,
         default: 0
+    },
+
+    imagen:{
+        type: String,
+        default: ""
     }
+    
 });
 
 export default mongoose.model("Book", bookSchema);
