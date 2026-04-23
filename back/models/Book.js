@@ -17,6 +17,11 @@ const bookSchema = new mongoose.Schema({
         required: true
     },
 
+    paginas:{
+        type: Number,
+        default: ""
+    },
+
     editorial: String,
     categoria: String,
 
@@ -39,6 +44,11 @@ const bookSchema = new mongoose.Schema({
     imagen:{
         type: String,
         default: ""
+    },
+
+    descripcion:{
+        type: String,
+        default:""
     }
     
 });
