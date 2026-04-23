@@ -11,8 +11,10 @@ const AdminCrearLibro = () => {
         titulo: "",
         autor: "",
         editorial: "",
+        paginas: "",
         categoria: "",
         idioma: "",
+        descripcion: "",
         precio: "",
         imagen: "",
         stock: ""
@@ -37,7 +39,8 @@ const AdminCrearLibro = () => {
                 body: JSON.stringify({
                     ...form,
                     precio: Number(form.precio),
-                    stock: Number(form.stock)
+                    stock: Number(form.stock),
+                    paginas: Number(form.paginas)
                 })
             });
 
@@ -98,6 +101,15 @@ const AdminCrearLibro = () => {
                     onChange={handleChange}
                 />
 
+                <input
+                    type="number"
+                    name="paginas"
+                    placeholder="Páginas"
+                    className="form-control mb-2"
+                    value={form.paginas}
+                    onChange={handleChange}
+                />
+
                 <select
                     name="categoria"
                     value={form.categoria}
@@ -155,6 +167,15 @@ const AdminCrearLibro = () => {
                     value={form.stock}
                     onChange={handleChange}
                     required
+                />
+
+                <textarea
+                    name="descripcion"
+                    placeholder="Descripción del libro"
+                    className="form-control mb-2"
+                    value={form.descripcion}
+                    onChange={handleChange}
+                    rows={4}
                 />
                     <button className="btn btn-primary w-100 mt-2">
                         Guardar libro

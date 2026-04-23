@@ -24,10 +24,10 @@ const LibrosIngles = () => {
                 const adaptados = filtrados.map(libro => ({
                     src: libro.imagen,
                     nombre: libro.titulo,
-                    descripcion: "",
+                    descripcion: libro.descripcion,
                     precio: `$${libro.precio}`,
                     editorial: libro.editorial,
-                    paginas: "",
+                    paginas: libro.paginas,
                     isbn: libro.isbn,
                     categoria: libro.categoria,
                     autor: libro.autor

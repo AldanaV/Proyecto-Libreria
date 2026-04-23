@@ -68,7 +68,7 @@ const Home = () => {
             autor: 'MADELINE, MILLER',
         },
         
-    ]);
+    ])
 
     const verDetalleClick = (libro) => {
         navigate('/detalle', { state: libro });
