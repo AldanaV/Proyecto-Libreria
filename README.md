@@ -95,5 +95,27 @@
 | `GET` | `/admin/orders` | **Solo Administrador** | Obtiene el listado global de todas las órdenes del sistema. |
 | `PUT` | `/admin/orders/:id` | **Solo Administrador** | Actualiza el estado de una orden (ej: "pendiente", "enviado"). |
 
+
+<h3>Visualización</h3>
+<h4>Inicio de sesión</h4>
+<img width="1363" height="720" alt="Captura de pantalla 2026-05-21 182247" src="https://github.com/user-attachments/assets/cf08e7ae-1b2c-4919-97d9-d7a6eebc098f" />
+
+<h4>Página principal</h4>
+<img width="1365" height="720" alt="Captura de pantalla 2026-05-21 182313" src="https://github.com/user-attachments/assets/076233a4-5d15-4450-b896-25ebfe631cb1" />
+
+<h4>Admin</h4>
+<img width="1363" height="721" alt="Captura de pantalla 2026-05-21 182343" src="https://github.com/user-attachments/assets/70c54ef9-1e9d-4aa2-ae42-003ea24be8b1" />
+<img width="1362" height="718" alt="Captura de pantalla 2026-05-21 183411" src="https://github.com/user-attachments/assets/2675c428-94b4-4dee-8fe5-137cd312805c" />
+
+<h4>Clientes</h4>
+<img width="1362" height="720" alt="Captura de pantalla 2026-05-21 182713" src="https://github.com/user-attachments/assets/092d4c3c-e51b-41e3-b1be-2ade73f3f170" />
+<img width="1365" height="723" alt="Captura de pantalla 2026-05-21 182739" src="https://github.com/user-attachments/assets/e019f880-d0df-453b-aba3-67b38721e17e" />
+<img width="1365" height="718" alt="Captura de pantalla 2026-05-21 182752" src="https://github.com/user-attachments/assets/8752bd0f-f712-4e45-92e0-95484e60aa7d" />
+<img width="1365" height="719" alt="Captura de pantalla 2026-05-21 182852" src="https://github.com/user-attachments/assets/3e7f2ec3-7c7b-4e30-9fca-6b96472d8f51" />
+<img width="1365" height="720" alt="Captura de pantalla 2026-05-21 182922" src="https://github.com/user-attachments/assets/3c401045-773f-4372-b510-e65c0fb7d7ab" />
+
+
+
+
 <h2>¡Muchas gracias por visitarnos!</h2>
 <p>Nunca dudes en despejar tu mente con un buen libro.</p>
