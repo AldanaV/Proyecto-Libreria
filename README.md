@@ -30,12 +30,7 @@
     2.Instala las dependencias del backend.
     npm install
 
-    3.Configura las variables de entorno; crea un archivo .env en el directorio back/ y agregá la siguiente línea:
-    MONGODB_URI= mongodb://localhost:27017/mi-base-de-datos
-
-    Asegurate de reemplazar "mi-base-de-datos" con el nombre de tu base de datos en MongoDB.
-
-    4. Iniciar el servidor del backend.
+    3. Iniciar el servidor del backend.
     npm run dev
 </p>
 
