@@ -1,5 +1,7 @@
 <h1>Libreria Nocturna - gestión de libreria</h1>
 
+<h3>¡Siempre estamos mejorando el proyecto!</h3>
+
 <p>¡Bievenidos a Libreria nocturna!</p>
 <p>Este proyecto es una aplicación web pensada para la gestión de libros; desarrollada utilizando React para el frontend y Node.js con Express para el backend. La aplicación permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) mediante el control de stock de libros en español e inglés (siempre y cuando estes logueado en la página como un usuario admin), utilizando MongoDB como base de datos; por otro lado, los usuarios normales (clientes) pueden simular compras (estando logueandos) y tienen un seguimiento de su pedido.</p>
 
