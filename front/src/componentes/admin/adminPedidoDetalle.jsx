@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import "./adminPedidoDetalle.css";
 
 const AdminPedidoDetalle = () => {
 
@@ -12,15 +13,15 @@ const AdminPedidoDetalle = () => {
     const [estado, setEstado] = useState("");
 
     const getColor = (estado) => {
-        if(estado === "Pendiente") return "bg-warning";
-        if(estado === "Enviado") return "bg-primary";
-        if(estado === "Entregado") return "bg-success";
+        if (estado === "Pendiente") return "bg-warning text-dark";
+        if (estado === "Enviado") return "bg-primary";
+        if (estado === "Entregado") return "bg-success";
         return "bg-secondary";
     };
 
     useEffect(() => {
 
-        if(!orderId) return;
+        if (!orderId) return;
 
         const token = localStorage.getItem("token");
 
@@ -29,12 +30,12 @@ const AdminPedidoDetalle = () => {
                 Authorization: `Bearer ${token}`
             }
         })
-        .then(res => res.json())
-        .then(data => {
-            setOrder(data);
-            setEstado(data.estado);
-        })
-        .catch(err => console.log(err));
+            .then(res => res.json())
+            .then(data => {
+                setOrder(data);
+                setEstado(data.estado);
+            })
+            .catch(err => console.log(err));
 
     }, [orderId]);
 
@@ -42,10 +43,10 @@ const AdminPedidoDetalle = () => {
 
         const token = localStorage.getItem("token");
 
-        try{
+        try {
             await fetch(`http://localhost:5000/api/orders/admin/orders/${order._id}`, {
                 method: "PUT",
-                headers:{
+                headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`
                 },
@@ -54,80 +55,86 @@ const AdminPedidoDetalle = () => {
 
             setEstado(nuevoEstado);
 
-        }catch(error){
+        } catch (error) {
             console.log(error);
         }
     };
 
-    if(!order){
-        return <h2 className="text-center mt-4">Cargando pedido...</h2>
+    if (!order) {
+        return (
+            <div className="admin-detalle-wrapper">
+                <h2 className="text-center mt-4">Cargando pedido...</h2>
+            </div>
+        )
     }
 
-    return(
-        <div className="container mt-4">
+    return (
+        <div className="admin-detalle-wrapper">
+            <div className="admin-detalle-container">
 
-            <h2>Orden #{order.orderNumber}</h2>
+                <h2 className="admin-detalle-title">Orden #{order.orderNumber}</h2>
 
-            <p><strong>Cliente:</strong> {order.cliente?.nombre || order.user?.nombre}</p>
-            <p><strong>Email:</strong> {order.cliente?.email || order.user?.email}</p>
-            <p><strong>Dirección:</strong> {order.direccion}</p>
-
-            <p>
-                <strong>Estado:</strong>
-                <span className={`badge ms-2 ${getColor(estado)}`}>
-                    {estado}
-                </span>
-            </p>
-
-            <p><strong>Total:</strong> ${order.total}</p>
-
-            <hr/>
-
-            <h4>Productos</h4>
-
-            {order.productos.map((prod, index) => (
-                <div key={index}>
-                    {prod.nombre} — {prod.quantity} x ${prod.precio}
+                <div className="admin-info-card">
+                    <p><strong>Cliente:</strong> {order.cliente?.nombre || order.user?.nombre}</p>
+                    <p><strong>Email:</strong> {order.cliente?.email || order.user?.email}</p>
+                    <p><strong>Dirección:</strong> {order.direccion}</p>
+                    <p>
+                        <strong>Estado actual:</strong>
+                        <span className={`badge admin-status-badge ms-2 ${getColor(estado)}`}>
+                            {estado}
+                        </span>
+                    </p>
+                    <p><strong>Total Orden:</strong> <span className="fw-bold text-success">${order.total}</span></p>
                 </div>
-            ))}
 
-            <div className="mt-3">
+                <div className="admin-productos-section">
+                    <h4>Productos en este pedido</h4>
+                    <div className="admin-info-card">
+                        {order.productos.map((prod, index) => (
+                            <div key={index} className="admin-producto-row">
+                                <span>{prod.nombre}</span>
+                                <span>{prod.quantity} x ${prod.precio}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
-                <button 
-                    className="btn btn-warning me-2"
-                    onClick={() => handleEstado("Pendiente")}
-                    disabled={estado === "Pendiente"}
+                <div className="admin-buttons-group">
+                    <button
+                        className="btn btn-warning admin-btn-action"
+                        onClick={() => handleEstado("Pendiente")}
+                        disabled={estado === "Pendiente"}
+                    >
+                        Marcar Pendiente
+                    </button>
+
+                    <button
+                        className="btn btn-primary admin-btn-action"
+                        onClick={() => handleEstado("Enviado")}
+                        disabled={estado === "Enviado" || estado === "Entregado"}
+                    >
+                        Marcar Enviado
+                    </button>
+
+                    <button
+                        className="btn btn-success admin-btn-action"
+                        onClick={() => handleEstado("Entregado")}
+                        disabled={estado === "Entregado"}
+                    >
+                        Marcar Entregado
+                    </button>
+                </div>
+
+                <button
+                    className="btn btn-secondary btn-back-full"
+                    onClick={() => navigate(-1)}
                 >
-                    Pendiente
-                </button>
-
-                <button 
-                    className="btn btn-primary me-2"
-                    onClick={() => handleEstado("Enviado")}
-                    disabled={estado === "Enviado" || estado === "Entregado"}
-                >
-                    Enviado
-                </button>
-
-                <button 
-                    className="btn btn-success"
-                    onClick={() => handleEstado("Entregado")}
-                    disabled={estado === "Entregado"}
-                >
-                    Entregado
+                    Volver al listado
                 </button>
 
             </div>
-
-            <button 
-                className="btn btn-secondary mt-3"
-                onClick={() => navigate(-1)}
-            >
-                Volver atrás
-            </button>
-
         </div>
     );
 };
 
-export default AdminPedidoDetalle;
+export default AdminPedidoDetalle;

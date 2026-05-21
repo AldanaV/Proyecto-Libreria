@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import "./login.css";
 
 const Login = () => {
 
@@ -56,49 +56,58 @@ const Login = () => {
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
-            {error && <Alert variant="danger">{error}</Alert>}
+        <div className="login-wrapper">
+            <div className="login-card">
+                <h2 className="login-title">Bienvenido</h2>
+                <Form onSubmit={handleSubmit}>
+                    {error && <Alert variant="danger">{error}</Alert>}
 
-            <Form.Group className="mb-3">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                    type="email"
-                    name="email"
-                    onChange={handleChange}
-                    required
-                />
-            </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control
+                            type="email"
+                            name="email"
+                            onChange={handleChange}
+                            required
+                            className="login-input"
+                            placeholder="tu@email.com"
+                        />
+                    </Form.Group>
 
-            <Form.Group className="mb-3">
-                <Form.Label>Contraseña</Form.Label>
-                <Form.Control
-                    type="password"
-                    name="password"
-                    onChange={handleChange}
-                    required
-                />
-            </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Contraseña</Form.Label>
+                        <Form.Control
+                            type="password"
+                            name="password"
+                            onChange={handleChange}
+                            required
+                            className="login-input"
+                            placeholder="••••••••"
+                        />
+                    </Form.Group>
 
-            <div className="text-end mb-3">
-                <Link to="/account/forgot-password" className="small text-decoration-none">
-                ¿Olvidaste la contraseña?
-                </Link>
+                    <div className="text-end mb-4">
+                        <Link to="/account/forgot-password" title="Pequeña ayuda" className="forgot-password-link">
+                            ¿Olvidaste la contraseña?
+                        </Link>
+                    </div>
+
+                    <Button variant="dark" type="submit" className="w-100 login-btn">
+                        Iniciar sesión
+                    </Button>
+
+                    <div className="text-center mt-4">
+                        <span className="small text-muted">
+                            ¿No tenes cuenta?{" "}
+                            <Link to="/account/Register" className="register-link">
+                                Registrate
+                            </Link>
+                        </span>
+                    </div>
+                </Form>
             </div>
-
-            <Button variant="dark" type="submit" className="w-100">
-                Iniciar sesión
-            </Button>
-
-            <div className="text-center">
-                <span className="small">
-                    ¿No tenes cuenta?{" "}
-                    <Link to="/account/Register" className="text-decoration-none">
-                    Registrate
-                    </Link>
-                </span>
-            </div>
-        </Form>
+        </div>
     );
 };
 
-export default Login;
+export default Login;

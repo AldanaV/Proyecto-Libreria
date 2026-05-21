@@ -8,9 +8,13 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-#dist
+dist
 dist-ssr
 *.local
+
+# Variables de entorno / Secretos
+.env
+.env.production
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +26,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+

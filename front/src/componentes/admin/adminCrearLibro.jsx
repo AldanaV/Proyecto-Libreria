@@ -58,7 +58,7 @@ const AdminCrearLibro = () => {
 
     return (
         <div className="container mt-4">
-            <h2>Agregar libro</h2>
+            <h2 className="admin-crear-title">Agregar libro</h2>
 
             <form onSubmit={handleSubmit} className="mt-3">
 
@@ -186,7 +186,7 @@ const AdminCrearLibro = () => {
                     className="btn btn-secondary me-2 mt-2"
                     onClick={() => navigate(-1)}
                     >
-                    Volver
+                    Atrás
                     </button>
             </form>
         </div>

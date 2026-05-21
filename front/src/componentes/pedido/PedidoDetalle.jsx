@@ -1,6 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import "./pedidodetalle.css";
 
 const PedidoDetalle = () => {
 
@@ -9,56 +9,77 @@ const PedidoDetalle = () => {
 
     const [order, setOrder] = useState(null);
 
+    const getBadgeColor = (estado) => {
+        if (estado === "Pendiente") return "bg-warning text-dark";
+        if (estado === "Enviado") return "bg-primary";
+        if (estado === "Entregado") return "bg-success";
+        return "bg-secondary";
+    };
+
     useEffect(() => {
 
-        if(!orderId) return;
+        if (!orderId) return;
 
         fetch(`http://localhost:5000/api/orders/${orderId}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log("ORDER DETALLE:", data);
-            setOrder(data);
-        })
-        .catch(err => console.log(err));
+            .then(res => res.json())
+            .then(data => {
+                console.log("ORDER DETALLE:", data);
+                setOrder(data);
+            })
+            .catch(err => console.log(err));
 
     }, [orderId]);
 
-    if(!order){
-        return <h2>Cargando pedido...</h2>;
+    if (!order) {
+        return (
+            <div className="pedido-detalle-wrapper">
+                <h2 className="text-center mt-4">Cargando pedido...</h2>
+            </div>
+        );
     }
 
-    return(
-        <div className="container mt-4">
+    return (
+        <div className="pedido-detalle-wrapper">
+            <div className="pedido-detalle-container">
 
-            <h2>Orden #{order.orderNumber}</h2>
+                <h2 className="pedido-detalle-title">Orden #{order.orderNumber}</h2>
 
-            <p>
-                Estado:
-                <span className="badge bg-info ms-2">{order.estado}</span>
-            </p>
-
-            <hr/>
-
-            {order.productos.map((prod, i) => (
-                <div key={i}>
-                    {prod.nombre} - {prod.quantity} x ${prod.precio}
+                <div className="pedido-info-card">
+                    <p>
+                        <strong>Estado:</strong>
+                        <span className={`badge pedido-status-badge ${getBadgeColor(order.estado)}`}>
+                            {order.estado}
+                        </span>
+                    </p>
                 </div>
-            ))}
 
-            <hr/>
+                <div className="pedido-productos-section">
+                    <h4>Productos del pedido</h4>
+                    <div className="pedido-info-card p-0">
+                        {order.productos.map((prod, i) => (
+                            <div key={i} className="pedido-producto-row">
+                                <span>{prod.nombre}</span>
+                                <span className="fw-bold">{prod.quantity} x ${prod.precio}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
-            <h4>Total: ${order.total}</h4>
+                <div className="pedido-total-section">
+                    Total pagado: ${order.total}
+                </div>
 
-            <div className="mt-3">
-                <Button as={Link} to="/mispedidos" className="btn btn-dark mb-2">
-                    Atrás
-                </Button>
+                <div className="pedido-btn-group">
+                    <Link to="/mispedidos" className="pedido-btn-back">
+                        Atrás
+                    </Link>
 
-                <Button as={Link} to="/" className="btn btn-dark">
-                    Volver a la tienda
-                </Button>
+                    <Link to="/" className="pedido-btn-shop">
+                        Volver a la tienda
+                    </Link>
+                </div>
+
             </div>
-
         </div>
     );
 };

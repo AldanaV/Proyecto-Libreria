@@ -1,3 +1,116 @@
-.caja p{
-    margin: 0px 0;
+.confirmacion-wrapper {
+    max-width: 900px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #333;
+}
+
+.status-text {
+    color: #c4a11f;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+}
+
+.thanks-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1a1e2f;
+    letter-spacing: -0.5px;
+}
+
+.order-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.copy-icon {
+    cursor: pointer;
+    color: #6c757d;
+    transition: color 0.2s;
+}
+
+.copy-icon:hover {
+    color: #212529;
+}
+
+.email-notice {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+    text-indent: 0 !important;
+}
+
+.email-notice a {
+    color: #495057;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.info-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f3f5;
+}
+
+.card-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1e2f;
+    margin-bottom: 15px;
+}
+
+.info-card hr {
+    opacity: 0.1;
+    margin: 0 0 20px 0;
+}
+
+.info-group {
+    margin-bottom: 20px;
+}
+
+.info-group label {
+    display: block;
+    font-size: 13px;
+    color: #6c757d;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.info-group p {
+    font-size: 15px;
+    color: #212529;
+    font-weight: 500;
+    margin: 0;
+}
+
+.total-group label {
+    font-size: 16px;
+    color: #495057;
+}
+
+.total-amount {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    color: #1a1e2f !important;
+    white-space: nowrap !important;
+}
+
+.text-success {
+    color: #2a9d8f !important;
 }

@@ -48,3 +48,12 @@ export const deleteBook = async(req, res) => {
         res.status(500).json({error: error.message});
     }
 };
+
+export const getTopBooks = async (req, res) => {
+    try {
+        const libros = await Book.find().sort({ ventas: -1 }).limit(6);
+        res.json(libros);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};

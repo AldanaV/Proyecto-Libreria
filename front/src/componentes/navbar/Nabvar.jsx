@@ -65,7 +65,7 @@ const NabVarPrincipal = () => {
             <Navbar expand="lg" className="bg-body-tertiary ">
                 <Container>
                     <Link to='/'>
-                        <img src='./iconolibro.png' width='80'/>
+                        <img src='/iconolibro.png' width='80'/>
                     </Link>
 
                     <Navbar.Brand as={Link} to="/">Libreria Nocturna</Navbar.Brand>
@@ -172,7 +172,7 @@ const NabVarPrincipal = () => {
                             alert("Debes iniciar sesión para finalizar la compra.");
                         }
                         setShow(false);
-                    }}as={Link} to="/checkout">Finalizar compra</Button>
+                    }}as={Link} to="/checkout">Iniciar compra</Button>
                 </Modal.Footer>
 
             </Modal>

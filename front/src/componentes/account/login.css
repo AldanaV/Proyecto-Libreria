@@ -1,0 +1,99 @@
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.login-card {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 24px;
+    box-shadow: 0 15px 45px rgba(118, 75, 162, 0.4);
+    width: 100%;
+    max-width: 450px;
+    border: 2px solid #764ba2;
+}
+
+.login-title {
+    font-weight: 800;
+    color: #1e272e;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+}
+
+.login-input {
+    border-radius: 12px !important;
+    padding: 14px 18px !important;
+    border: 2px solid #e1e8ef !important;
+    background-color: #f8fafc !important;
+    transition: all 0.3s ease !important;
+    font-size: 1rem !important;
+}
+
+.login-input:focus {
+    border-color: #667eea !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1) !important;
+    outline: none !important;
+}
+
+.forgot-password-link {
+    font-size: 0.85rem;
+    color: #764ba2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.forgot-password-link:hover {
+    color: #667eea;
+}
+
+.login-btn {
+    padding: 14px !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    background: linear-gradient(to right, #667eea, #764ba2) !important;
+    border: none !important;
+    color: white !important;
+    font-size: 1.1rem !important;
+    transition: all 0.3s ease !important;
+    margin-top: 1rem;
+    box-shadow: 0 8px 15px rgba(118, 75, 162, 0.3) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(118, 75, 162, 0.4) !important;
+    opacity: 0.95;
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+.register-link {
+    color: #764ba2;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.register-link:hover {
+    color: #667eea;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 2rem;
+    }
+}

@@ -1,18 +1,199 @@
+.stock-wrapper {
+    background-color: #EDB2EA;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.stock-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.stock-title {
+    font-weight: 800;
+    color: #2c3e50;
+    margin: 0;
+    text-shadow: 2px 1px 3px white;
+}
+
 .header-stock {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
-.header-stock h2 {
-  margin: 0;
+.btn-admin-add {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #27ae60;
+    color: white;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(39, 174, 96, 0.2);
 }
 
-.btn-admin-small {
-  padding: 4px 8px;
-  font-size: 0.9rem;
-  background-color: rgb(43, 168, 49);
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
+.btn-admin-add:hover {
+    background-color: #219150;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3);
+}
+
+.stock-search-input {
+    border-radius: 12px !important;
+    padding: 12px 20px !important;
+    border: 2px solid #f0f0f0 !important;
+    transition: border-color 0.3s !important;
+}
+
+.stock-search-input:focus {
+    border-color: #EDB2EA !important;
+    box-shadow: none !important;
+}
+
+.stock-table {
+    border-collapse: separate !important;
+    border-spacing: 0 8px !important;
+}
+
+.stock-table-head th {
+    background-color: #34495e !important;
+    color: white !important;
+    border: none !important;
+    padding: 15px !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.stock-table-head th:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.stock-table-head th:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.stock-table tbody tr {
+    background-color: #fcfcfc;
+    transition: background-color 0.2s;
+}
+
+.stock-table tbody tr:hover {
+    background-color: #f5f5f5 !important;
+}
+
+.table-responsive {
+    overflow-x: hidden !important; /* Evita que aparezca el scroll horizontal */
+}
+
+.stock-table td {
+    padding: 15px !important;
+    border: none !important;
+}
+
+.badge-category {
+    background-color: #e8f4fd;
+    color: #2980b9;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.price-text {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.stock-badge {
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
+}
+
+.admin-actions-cell {
+    display: flex;
+    gap: 8px; /* Reducido para que estén más cerca */
+    justify-content: center;
+    align-items: center;
+}
+
+.action-btn {
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    font-size: 1rem !important;
+    transition: all 0.2s !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-btn:hover {
+    transform: scale(1.15);
+}
+
+/* EDIT FORM STYLES */
+.edit-form-wrapper {
+    animation: fadeIn 0.4s ease;
+}
+
+.edit-form-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+}
+
+.edit-form-card h3 {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.edit-form-card label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.edit-form-card .form-control {
+    border-radius: 10px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+}
+
+.edit-form-card .form-control:focus {
+    border-color: #27ae60;
+    box-shadow: 0 0 0 0.2rem rgba(39, 174, 96, 0.15);
+}
+
+.edit-form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.edit-form-actions .btn {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    font-weight: 600;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

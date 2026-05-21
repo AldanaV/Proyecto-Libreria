@@ -49,6 +49,11 @@ const bookSchema = new mongoose.Schema({
     descripcion:{
         type: String,
         default:""
+    },
+
+    ventas: {
+        type: Number,
+        default: 0
     }
     
 });
